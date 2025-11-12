@@ -7,6 +7,7 @@ dist-ssr/
 *.local
 
 # Environment variables (NEVER commit API keys)
+.env
 .env.local
 .env.*.local
 
