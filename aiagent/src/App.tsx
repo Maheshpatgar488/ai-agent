@@ -82,11 +82,11 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col items-center p-6">
-      <h1 className="text-3xl font-bold mb-4 text-cyan-400">🤖 Mahesh’s AI Agent</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-cyan-400 px-2">🤖 Mahesh's AI Agent</h1>
 
-      <div className="w-full max-w-2xl bg-slate-800/70 rounded-lg p-4 h-[70vh] overflow-y-auto shadow-lg">
+        <div className="w-full max-w-3xl bg-slate-800/70 rounded-lg p-3 sm:p-4 md:p-6 h-[60vh] sm:h-[65vh] md:h-[70vh] overflow-y-auto shadow-lg">
         {messages.length === 0 && (
-          <p className="text-center text-gray-400 mt-20">
+         <p className="text-center text-gray-400 mt-12 sm:mt-16 md:mt-20 text-sm sm:text-base px-4">
             👋 Start chatting with your AI assistant!
           </p>
         )}
@@ -98,7 +98,7 @@ const App = () => {
             }`}
           >
             <p
-              className={`px-4 py-2 rounded-2xl max-w-[75%] whitespace-pre-wrap ${
+            className={`px-3 sm:px-4 py-2 rounded-2xl max-w-[85%] sm:max-w-[80%] md:max-w-[75%] text-sm sm:text-base whitespace-pre-wrap ${
                 msg.role === "user"
                   ? "bg-cyan-600 text-white rounded-br-none"
                   : "bg-slate-700 text-gray-100 rounded-bl-none"
@@ -109,28 +109,29 @@ const App = () => {
           </div>
         ))}
         {loading && (
-          <p className="text-gray-400 text-center mt-4">💭 Thinking...</p>
+         <p className="text-gray-400 text-center mt-3 sm:mt-4 text-sm sm:text-base">💭 Thinking...</p>
         )}
       </div>
 
-      <div className="flex w-full max-w-2xl mt-4 gap-2">
+  <div className="w-full max-w-3xl mt-3 sm:mt-4 md:mt-6 flex flex-col sm:flex-row gap-2 sm:gap-3 px-2 sm:px-0">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyPress}
           placeholder="Ask me anything..."
-          className="flex-1 px-4 py-2 rounded bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="flex-1 px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base rounded bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition placeholder-gray-500 min-w-0"
         />
         <button
           onClick={handleSend}
-          className="px-4 py-2 bg-cyan-500 rounded-lg hover:bg-cyan-600 transition"
+            className="px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base bg-cyan-500 rounded-lg hover:bg-cyan-600 active:bg-cyan-700 transition disabled:opacity-50 disabled:cursor-not-allowed font-medium whitespace-nowrap"
           disabled={loading}
         >
           Send
         </button>
         <button
           onClick={clearChat}
-          className="px-3 py-2 bg-red-500 rounded-lg hover:bg-red-600 transition"
+          className="px-3 sm:px-4 py-2 sm:py-2.5 text-base sm:text-lg bg-red-500 rounded-lg hover:bg-red-600 active:bg-red-700 transition font-medium whitespace-nowrap"
+          title="Clear chat history"
         >
           🗑️
         </button>
